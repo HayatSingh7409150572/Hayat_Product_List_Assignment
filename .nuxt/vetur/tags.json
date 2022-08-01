@@ -1,0 +1,14 @@
+{
+  "CategoryList": {
+    "description": "Auto imported from components/CategoryList.vue"
+  },
+  "ProductCategoryView": {
+    "description": "Auto imported from components/ProductCategoryView.vue"
+  },
+  "ProductName": {
+    "description": "Auto imported from components/ProductName.vue"
+  },
+  "ProductView": {
+    "description": "Auto imported from components/ProductView.vue"
+  }
+}

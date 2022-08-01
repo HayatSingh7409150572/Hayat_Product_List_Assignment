@@ -1,0 +1,20 @@
+[
+  {
+    "name": "categories",
+    "path": "/categories",
+    "component": "C:\\\\Users\\\\hayat.singh\\\\Product_List\\\\pages\\\\categories.vue",
+    "chunkName": "pages/categories"
+  },
+  {
+    "name": "products",
+    "path": "/products",
+    "component": "C:\\\\Users\\\\hayat.singh\\\\Product_List\\\\pages\\\\products.vue",
+    "chunkName": "pages/products"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\hayat.singh\\\\Product_List\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]
