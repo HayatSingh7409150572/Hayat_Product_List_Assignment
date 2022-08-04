@@ -3,32 +3,32 @@
     <title>
         Productlist Project
     </title>
-    <h1 class="text-center font-bold text-5xl mt-4">Form To Add Products</h1>
+    <h1 class="text-center display-centre font-bold text-5xl mt-4">Form To Add Products</h1>
     <hr class="mt-5 border-1 border-black">
     <div class="border-4 bg-gray-100 mr-60 ml-60 p-6 border-solid border-black rounded-md mt-6 ">
         <form action="">
             <div class="p-1 ">
                 <label class="font-bold text-xl mr-16" for="pname">Product Name</label>
-                <input  class="ml-16 border-2 px-32" type="text" v-model="formdata.pname" name="pname" id="pname">
+                <input  class="ml-16 border-2 px-32" type="text" v-model="formdata.pname" name="pname" id="pname" required>
             </div>
             <div class="p-1 ">
                 <label class="font-bold text-xl mr-16" for="price">Product Price</label>
-                <input class="ml-16 border-2 px-32"  type="text" v-model="formdata.price" name="price" id="price">
+                <input class="ml-16 border-2 px-32"  type="text" v-model="formdata.price" name="price" id="price" required>
             </div>
             <div class="p-1 ">
                 <label class="font-bold text-xl mr-16" for="category">Product Category</label>
-                <input class="ml-16 border-2 px-32"   type="text" v-model="formdata.category" name="category" id="category">
+                <input class="ml-16 border-2 px-32"   type="text" v-model="formdata.category" name="category" id="category" required>
             </div>
             <div class="p-1 ">
                 <label class="font-bold text-xl mr-16" for="color">Product color</label>
-                <input class="ml-16 border-2 px-32"  type="text" v-model="formdata.color" name="color" id="color">
+                <input class="ml-16 border-2 px-32"  type="text" v-model="formdata.color" name="color" id="color" required>
             </div>
             <div class="p-1  mt-6">
-                <button  class="ml-16 border-2 font-bold mr-16 rounded-md bg-black hover:bg-black hover: text-white p-2 text-center" type="submit" @click="addpro">Add Product</button>
+                <button  class="ml-16 border-2 font-bold mr-16 rounded-md bg-black hover:bg-black hover: text-white p-2 text-center" type="submit" value="Submit" @click="em? addpro() : al()" >Add Product</button>
                 <button class="ml-16 border-2 font-bold mr-16 rounded-md bg-black  hover:bg-black  text-white p-2 text-center" type="reset">Reset</button>
             </div>
         </form>
-        <table border="2" class="border-2  bg-gray-100 mr-60 ml-32 p-6 border-solid border-black rounded-md mt-8 ">
+        <table borde="2" class="border-2  bg-gray-100 mr-60 ml-32 p-6 border-solid border-black rounded-md mt-8 ">
             <tr>
                 <td class="border-2  bg-gray-100 p-2 border-solid border-black rounded-md mt-8 font-bold">Product ID</td>
                 <td class="border-2  bg-gray-100 p-2 border-solid border-black rounded-md mt-8 font-bold">Product Name </td>
@@ -77,8 +77,10 @@ export default {
     methods : {
          addpro(event){
             event.preventDefault();
+            
             if(this.isEdit == true)
             {
+              this.check()
               this.myarr[this.indexEdit] = this.formdata;
               this.isEdit = false;
               this.indexEdit = -1;
@@ -93,9 +95,17 @@ export default {
                 price : "",
                 category : "",
                 color : "",
+                em:""
             }
-            console.log("Formdata is :", this.myarr);
+
+            console.warn(this.formdata.pname.length);
          },
+          check(){
+            var uname=document.getElementById(pname).value;
+            if (uname=="" ){
+                alert("Username is obligatory")
+            }
+},
          deletepro(index) {
             this.myarr.splice(index, 1);
         },
@@ -108,26 +118,30 @@ export default {
           this.indexEdit = index ;
         },
         userpro(userName){
-            // user1 = this.userName
-            // if(this.allUserData.filter(e => e.firstName == userName})){
-            //     alert("user Found" + e.firstName+ ""+e.lastName);
-            // }
+          
             console.log(userName);
             this.userFound = this.myarr.filter((e) => {
                 if(e.pname == userName){
-                    // this.userFound.push(e);
+                    
                     console.log(e);
                     return e;
-                    // alert("user Found" + e.firstName+ ""+e.lastName);
+                    
                 }
-                // else{
-                // alert("user not found");
-                // }
-                // console.log(this.userFind);
+               
             });
-            // console.log(find1);
-            console.log(this.userFound);
         },
+        emdata(){
+            if(this.formdata.pname.length==0){
+                this.em=false
+            }
+            else{
+                this.em=true
+            }
+            console.warn(this.em)
+        },
+            al(){
+                alert("You have not entered the details")
+            }
+        }
     }
-}
 </script>
